@@ -1,4 +1,4 @@
 .tox
 .pytest_cache
 .idea
-sideeffect.egg.info
+.sideeffect.egg.info
