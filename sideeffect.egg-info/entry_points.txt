@@ -1,0 +1,3 @@
+[console_scripts]
+sefct = sefct.__main__:checkCommand
+
