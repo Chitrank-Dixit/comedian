@@ -1,4 +1,9 @@
+*.pyc
+*.cpython-36-pytest-6.2.1.pyc
 .tox
 .pytest_cache
 .idea
 sideeffect.egg-info
+tests/__pycache__
+tests/unit/__pycache__
+tests/functional/__pycache__
