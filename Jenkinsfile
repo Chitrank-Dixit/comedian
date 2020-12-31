@@ -1,4 +1,9 @@
 pipeline {
+    environment {
+        registry = 'https://registry.hub.docker.com/'
+        name = 'chitrankdixit/sideeffect'
+        dockerImage = 'chitrankdixit/sideeffect'
+    }
     agent any
     stages {
         stage('Checkout Source') {
@@ -17,11 +22,27 @@ pipeline {
         stage('Code Analysis') {
             parallel {
                 stage("Flake8") {
-                    sh 'flake8 .'
+                    steps {
+                        script {
+                            docker.withRegistry( "" ) {
+                                dockerImage.inside() {
+                                    sh 'flake8 .'
+                                }
+                            }
+                        }
+                    }
                 }
 
                 stage("black") {
-                    sh 'black --check --diff .'
+                    steps {
+                        script {
+                            docker.withRegistry( "" ) {
+                                dockerImage.inside() {
+                                    sh 'black --check --diff .'
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
