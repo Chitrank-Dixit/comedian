@@ -7,3 +7,4 @@ sideeffect.egg-info
 tests/__pycache__
 tests/unit/__pycache__
 tests/functional/__pycache__
+sefct/__pycache__
