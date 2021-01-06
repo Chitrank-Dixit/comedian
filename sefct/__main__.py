@@ -1,15 +1,5 @@
 #!/usr/bin/env python3
-import click
-
-
-@click.command()
-@click.argument("command", nargs=1)
-def checkCommand(command):
-    """
-    CLI tool used to generate the the hash of STRINGTOHASH using ALGORITHM.
-    """
-
-    print(command)
+from .sefct import checkCommand
 
 
 if __name__ == "__main__":
