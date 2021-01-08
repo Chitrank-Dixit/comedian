@@ -6,17 +6,6 @@ pipeline {
     }
     agent any
     stages {
-        stage('Checkout Source') {
-            steps {
-                checkout([$class: 'GitSCM',
-                branches: [[name: "$GIT_LOCAL_BRANCH"]],
-                doGenerateSubmoduleConfigurations: false,
-                extensions: [],
-                gitTool: 'Default',
-                submoduleCfg: [],
-                userRemoteConfigs: [[url: 'https://github.com/Chitrank-Dixit/comedian.git']]])
-            }
-        }
         stage('Build') {
             steps {
                 script {
@@ -81,5 +70,4 @@ pipeline {
             }
         }
     }
-
 }
