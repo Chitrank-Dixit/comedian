@@ -6,11 +6,6 @@ pipeline {
     }
     agent any
     stages {
-        stage('Checkout Source') {
-            steps {
-                git 'https://github.com/Chitrank-Dixit/comedian.git'
-            }
-        }
         stage('Build') {
             steps {
                 script {
@@ -75,5 +70,4 @@ pipeline {
             }
         }
     }
-
 }
