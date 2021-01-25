@@ -1,0 +1,23 @@
+---
+- name: VM for dry run
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Install Packages
+      apt:
+        name: ['python-pip', 'vim', 'python3.6', 'python3.6-dev', 'python-virtualenv']
+        update_cache: yes
+        state: present
+
+    - name: Install tox
+      shell:
+        "pip install tox==3.20.1"
+    - name: Enable Environment and activate
+      command: "{{ item }}"
+      args:
+        chdir: "/vagrant"
+      with_items: ## create dev env using tox
+        - tox -e dev
+        - . ./.tox/dev/bin/activate
+        - sefct --dry-run 'touch abc.txt'
