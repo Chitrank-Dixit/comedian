@@ -5,3 +5,8 @@ repos:
       - id: black
         args: [--fast]
         language_version: python3 # Should be a command that runs python3.6+
+
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.8.4
+    hooks:
+      - id: flake8

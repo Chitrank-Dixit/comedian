@@ -8,7 +8,7 @@ import click
 @click.option("-c", "--commit", is_flag=True, help="run the command on shell")
 def checkCommand(command, dry_run, commit, platform):
     """
-    CLI tool used to run or dry run shell commands
+    CLI tool used to run or dry run shell commands and show tips
     """
 
     if platform != "linux":
